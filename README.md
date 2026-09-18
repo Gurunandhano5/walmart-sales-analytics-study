@@ -1,94 +1,95 @@
-# walmart-sales-analytics-study
-Analyzed Walmart weekly sales data using Python, pandas, SQL, and Tableau to identify store performance, sales trends, and holiday sales patterns.
-# Walmart Sales Analytics Study — Gurunandhan "Guru" Pillai
+# Walmart Sales Analytics
 
-## Overview
+This project analyzes historical Walmart weekly sales data to understand store performance, holiday sales patterns, monthly trends, and the relationship between economic factors and sales.
 
-This project analyzes historical Walmart weekly sales data to identify
-store-level performance, sales trends, and differences between holiday
-and non-holiday periods.
+I used Python for data preparation and exploratory analysis, and SQLite to answer business questions using SQL.
 
-The project demonstrates practical data analytics skills using Python,
-pandas, SQL, and data visualization.
+## Dataset
 
-## Business Questions
+The dataset contains 6435 weekly sales records across 45 stores from February 2010 to October 2012.
 
-1. Which stores generate the highest total sales?
-2. How do weekly sales change over time?
-3. How does sales performance differ between stores?
-4. Are average sales different during holiday and non-holiday weeks?
-5. Which stores consistently perform above the overall average?
-6. What simple business insights can be identified from the data?
+The data includes:
 
-## Tools
+- Store
+- Date
+- Weekly Sales
+- Holiday Flag
+- Temperature
+- Fuel Price
+- CPI
+- Unemployment
+
+During data preparation, I checked for missing values and duplicates, converted the date field to datetime format, and created additional year and month fields for trend analysis.
+
+## Tools Used
 
 - Python
-- pandas
-- NumPy
-- SQL
+- Pandas
 - Matplotlib
+- SQLite
+- SQL
 - Google Colab
-- GitHub
-- Tableau (dashboard)
 
-## Approach
+## Analysis
 
-1. Load the public Walmart weekly sales dataset.
-2. Inspect the data structure and data quality.
-3. Check for missing and duplicate records.
-4. Convert dates into a usable datetime format.
-5. Create month and year fields for trend analysis.
-6. Analyze store-level sales using pandas and SQL.
-7. Compare holiday and non-holiday sales.
-8. Create visualizations to communicate findings.
-9. Export a cleaned dataset for further analysis.
-10. Summarize business insights based on the analysis.
+The analysis focused on:
 
-## Key Analysis
+- Overall sales performance
+- Top-performing stores
+- Holiday vs. non-holiday sales
+- Monthly sales trends
+- Store contribution to total sales
+- Economic factors and their correlation with weekly sales
+- Store ranking using SQL window functions
+- Month-over-month sales changes using SQL
 
-### Store Performance
+## Key Findings
 
-Store-level sales were aggregated to identify stores with the highest
-total and average weekly sales.
+- Total sales across the dataset were approximately **$6.74 billion**.
+- The top five stores generated approximately **$1.45 billion**, representing **21.55% of total sales**.
+- **Store 20** had the highest total sales at approximately **$301.40 million**.
+- Average store-week sales during holiday periods were approximately **$1.12 million**, compared with **$1.04 million** during non-holiday periods, a **7.84% higher average**.
+- **December 2010** recorded the highest aggregate monthly sales at approximately **$288.76 million**.
+- Fuel price, temperature, CPI, and unemployment individually showed weak linear correlations with weekly sales.
 
-### Sales Trends
+## Visualizations
 
-Weekly sales were analyzed over time and summarized by month to identify
-changes in sales patterns.
+### Monthly Sales Trend
 
-### Holiday Analysis
+![Monthly Sales Trend](assets/walmart_monthly_sales_trend.png)
 
-Average weekly sales were compared between holiday and non-holiday
-periods.
+### Top 10 Stores by Total Sales
 
-### Business Insights
+![Top 10 Stores](assets/walmart_top_10_stores.png)
 
-The analysis focuses on identifying patterns in historical sales data
-rather than making causal claims about why sales changed.
+### Holiday vs. Non-Holiday Sales
 
-## Files
+![Holiday vs Non-Holiday Sales](assets/walmart_holiday_vs_nonholiday.png)
 
-- `walmart_sales_analysis.ipynb` — Python/pandas analysis
-- `walmart_sales_analysis.sql` — SQL analysis queries
-- `walmart_sales_cleaned.csv` — cleaned dataset
-- `/assets` — charts used for the project and portfolio
-- Tableau dashboard — interactive visualization of the analysis
+### Economic Factors and Weekly Sales
+
+![Sales Correlations](assets/walmart_sales_correlations.png)
+
+## SQL Analysis
+
+I used SQLite to perform the SQL portion of the analysis. The queries include aggregations, grouping, CASE statements, CTEs, subqueries, and window functions such as `RANK()` and `LAG()`.
+
+The standalone SQL queries are available in:
+
+`walmart_sales_analysis.sql`
+
+The SQL notebook is available in:
+
+`walmart_sales_sql_analysis.ipynb`
+
+## Project Files
+
+- `walmart_sales_analysis.ipynb` - Python data preparation and analysis
+- `walmart_sales_sql_analysis.ipynb` - SQL analysis performed using SQLite in Google Colab
+- `walmart_sales_analysis.sql` - Standalone SQL queries
+- `walmart_sales_cleaned.csv` - Prepared dataset used for analysis
+- `assets/` - Charts generated during the analysis
 
 ## What I Learned
 
-- Cleaning and validating real-world tabular data
-- Using pandas for exploratory data analysis
-- Writing SQL aggregation and analytical queries
-- Grouping and comparing business metrics
-- Creating clear data visualizations
-- Translating analytical results into business insights
-- Communicating findings through a dashboard
-
-## Future Work
-
-Possible next steps include:
-
-- Building a sales forecasting model
-- Analyzing relationships between sales and economic variables
-- Creating additional store-level performance metrics
-- Exploring seasonal sales patterns
+This project helped me practice working through a complete analytics workflow: validating and preparing raw data, exploring business questions with Python, using SQL to reproduce and extend the analysis, and communicating the results through visualizations and quantified findings.
